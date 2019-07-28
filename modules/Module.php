@@ -2,6 +2,7 @@
 namespace modules;
 
 use Craft;
+use modules\evoextension\EvoExtension;
 
 /**
  * Custom module class.
@@ -38,6 +39,10 @@ class Module extends \yii\base\Module
         }
 
         parent::init();
+        // Craft::$app->view->registerTwigExtension(new EvoExtension());
+        // Craft::$app->view->twig->addExtension(new EvoExtension());
+        // Craft::$app->getView()->registerTwigExtension(new EvoExtension());
+        Craft::$app->getView()->getTwig()->addExtension(new EvoExtension());
 
         // Custom initialization code goes here...
     }
